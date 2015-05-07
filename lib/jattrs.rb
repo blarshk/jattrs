@@ -18,7 +18,7 @@ module Jattrs
           next if respond_to?(method)
 
           define_method("#{method}") do
-            send(field_name)[method.to_s]
+            (send(field_name) || {})[method.to_s]
           end
         end
       end
